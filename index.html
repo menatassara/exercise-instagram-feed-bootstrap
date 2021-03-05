@@ -17,8 +17,6 @@
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
-    <!-- JS custom -->
-    <script src="./index.js"></script>
 </head>
 
 <body>
@@ -65,46 +63,365 @@
     </div>
 
 
-    <!-- buttons to change views -->
-    <div class="container" id="btn-view">
-        <div>
 
-            <button id="btnGridView" type="button" class="btn btn-sm btn-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
-                </svg>
-            </button>
 
-            <button id="btnHistoryView" type="button" class="btn btn-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-stop-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z" />
-                </svg>
-            </button>
+    <div class="accordion" id="accordionView">
 
-        </div>
-    </div>
+        <!-- buttons to change views -->
+        <div class="container" id="btn-view">
+            <div class="btn-group">
+                <button id="headingView" class="btn btn-secondary " data-bs-toggle="collapse" data-bs-target="#gridView"
+                    aria-expanded="true" aria-controls="gridView">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
+                    </svg>
+                </button>
 
-    <!-- Images Grid -->
-
-    <div class="container-fluid overflow-hidden p-0" id="gridView">
-
-        <div class="row g-1" id="gridContent">
-            <!-- Content added by Js -->
+                <button id="headingHistory" class="btn btn-secondary collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#historyView" aria-expanded="false" aria-controls="historyView">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-stop-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
+
+        <!-- Images Grid -->
+        <div class="accordion-item">
+            <div data-bs-parent="#accordionView" aria-labelledby="headingGrid"
+                class="container-fluid overflow-hidden p-0 accordion-collapse collapse show" id="gridView">
+                <div class="row g-1 " id="gridContent">
+                    <div class="col-sm-4">
+                        <img src="./images/background.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_2.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_3.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_4.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_5.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_6.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_7.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_8.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/background_9.jpg" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Images type history -->
+        <div class="accordion-item">
+            <div data-bs-parent="#accordionView" aria-labelledby="headingHistory"
+                class="py-3 container-fluid overflow-hidden accordion-collapse collapse" id="historyView">
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_2.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_3.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_4.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_5.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_6.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_7.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_8.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mx-auto" style="width: 500px">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">My first photo</h5>
+                        <h5 class="number-card text-secondary">12/14</h5>
+                    </div>
+                    <img src="./images/background_9.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <b class="mb-3">32 Likes</b>
+                        <p class="card-text">
+                            This is my first photo of the feed. This is a multi line comment for testing purposes.
+                            I'qm learning to code with #BreatheCode.
+                        </p>
+                        <div class="text-secondary d-flex justify-content-between align-items-center">
+
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                                <span class="mx-2">Comment...</span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Images type history -->
-
-    <div id="historyView" class="py-3 ">
-        <!-- Content added by Js -->
-    </div>
-
-
 
     <!-- Modal bootstrap -->
     <div class="modal" tabindex="-1" id="modalPost">
